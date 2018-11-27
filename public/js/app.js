@@ -86,7 +86,6 @@ $(document).ready(function() {
       [
         "<li class='todo-item'>",
         "<button class='complete btn'>✓</button>",
-
         "<span>",
         todo.text,
         "</span>",
@@ -94,12 +93,15 @@ $(document).ready(function() {
         "</li>"
       ].join("")
     );
-
+    $newInput.find("button.done").data("id", todo.id);
+    $newInput.find("input.edit").css("display", "none");
     $newInput.data("todo", todo);
     if (todo.complete) {
       $newInput.find("button").css("background", "green");
+      $newInput.find("button").addClass("done");
+
       $newInput.find("span").css("text-decoration", "line-through");
-    }
+    } 
     return $newInput;
   }
 
