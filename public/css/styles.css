@@ -3,7 +3,7 @@ body {
   background-image: url(beach.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 350px;
+  width: 300px;
    
 }
 
@@ -24,9 +24,9 @@ body {
   background-color: white;
   width: 300px;
   padding-left: 10px;
-  height:1000px;
+  height: 900px;
   margin-top: 0px;
-  margin-left: 275px;
+  margin-left: 175px;
   font-size: 25px;
 
 }
@@ -67,8 +67,8 @@ h2{
   background-color: white;
   font-size: 35px;
   width: 500px;
-  height: 1000px;;
-  margin-left: 1300px;
+  height: 800px;;
+  margin-left: 1150px;
   margin-right: 0px;
 
 }
