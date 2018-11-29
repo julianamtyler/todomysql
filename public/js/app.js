@@ -2,7 +2,7 @@ $(document).ready(function() {
   var newItem = $("input.new-item");
   var todoItems = $(".todo-container");
 
-  $(document).on("click", "button.done", deleteItem);
+  $(document).on("click", "button.delete", deleteItem);
   $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".todo-item", editTodo);
   $(document).on("keyup", ".todo-item", finishEdit);
@@ -36,6 +36,7 @@ $(document).ready(function() {
       method: "DELETE",
       url: "/api/todoItems/" + id
     }).then(getTodos);
+    id.find("button.delete").data("id", todo.id);
   }
 
   function editTodo() {
@@ -93,12 +94,12 @@ $(document).ready(function() {
         "</li>"
       ].join("")
     );
-    newTodo.find("button.done").data("id", todo.id);
+
     newTodo.find("input.edit").css("display", "none");
     newTodo.data("todo", todo);
     if (todo.complete) {
       newTodo.find("button").css("background", "green");
-      newTodo.find("button").addClass("done");
+      newTodo.find("button").addClass("delete");
       newTodo.find("span").css("text-decoration", "line-through");
     } 
     return newTodo;
