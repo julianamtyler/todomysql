@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  var $newItemInput = $("input.new-item");
-  var $todoContainer = $(".todo-container");
+  var newItem = $("input.new-item");
+  var todoItems = $(".todo-container");
 
-  $(document).on("click", "button.delete", deleteItem);
+  $(document).on("click", "button.done", deleteItem);
   $(document).on("click", "button.complete", toggleComplete);
   $(document).on("click", ".todo-item", editTodo);
   $(document).on("keyup", ".todo-item", finishEdit);
@@ -14,12 +14,12 @@ $(document).ready(function() {
   getTodos();
 
   function createnew() {
-    $todoContainer.empty();
+    todoItems.empty();
     var newItems = [];
     for (var i = 0; i < todos.length; i++) {
       newItems.push(createNewRow(todos[i]));
     }
-    $todoContainer.prepend(newItems);
+    todoItems.prepend(newItems);
   }
 
   function getTodos() {
@@ -108,11 +108,11 @@ $(document).ready(function() {
   function newTodo(event) {
     event.preventDefault();
     var todo = {
-      text: $newItemInput.val().trim(),
+      text: newItem.val().trim(),
       complete: false
     };
 
     $.post("/api/todoItems", todo, getTodos);
-    $newItemInput.val("");
+    newItem.val("");
   }
 });
