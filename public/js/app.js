@@ -82,7 +82,7 @@ $(document).ready(function() {
   }
 
   function createNewRow(todo) {
-    var $newInput = $(
+    var newTodo = $(
       [
         "<li class='todo-item'>",
         "<button class='complete btn'>✓</button>",
@@ -93,16 +93,15 @@ $(document).ready(function() {
         "</li>"
       ].join("")
     );
-    $newInput.find("button.done").data("id", todo.id);
-    $newInput.find("input.edit").css("display", "none");
-    $newInput.data("todo", todo);
+    newTodo.find("button.done").data("id", todo.id);
+    newTodo.find("input.edit").css("display", "none");
+    newTodo.data("todo", todo);
     if (todo.complete) {
-      $newInput.find("button").css("background", "green");
-      $newInput.find("button").addClass("done");
-
-      $newInput.find("span").css("text-decoration", "line-through");
+      newTodo.find("button").css("background", "green");
+      newTodo.find("button").addClass("done");
+      newTodo.find("span").css("text-decoration", "line-through");
     } 
-    return $newInput;
+    return newTodo;
   }
 
   function newTodo(event) {
